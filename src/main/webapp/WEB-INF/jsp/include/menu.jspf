@@ -4,12 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix = "fn" uri = "http://java.sun.com/jsp/jstl/functions" %>
-<%
-    Map menus = new LinkedHashMap();
-    menus.put("discount_code.jsp", new String[]{"/mvc/discount_code/input", "優惠碼"});
-    menus.put("micro_market.jsp", new String[]{"/mvc/micro_market/input", "市場區域"});
-    application.setAttribute("menus", menus);
-%>
+
 <div id="menu">
     <div class="pure-menu">
         <a class="pure-menu-heading" href="/case/sales/">Sales</a>
