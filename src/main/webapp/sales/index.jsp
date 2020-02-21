@@ -3,16 +3,16 @@
 <html lang="en">
 <head>
     <!-- Head -->
-    <%@include file="include/head.jspf"  %>
+    <%@include file="/WEB-INF/jsp/include/head.jspf"  %>
 </head>
 <body>
 
 <div id="layout">
     <!-- Toggle -->
-    <%@include file="include/toggle.jspf"  %>
+    <%@include file="/WEB-INF/jsp/include/toggle.jspf"  %>
     
     <!-- Menu -->
-    <%@include file="include/menu.jspf"  %>
+    <%@include file="/WEB-INF/jsp/include/menu.jspf"  %>
 
     <div id="main">
         <div class="header">
@@ -24,7 +24,7 @@
 </div>
 
 <!-- Foot -->
-<%@include file="include/foot.jspf"  %>
+<%@include file="/WEB-INF/jsp/include/foot.jspf"  %>
 
 </body>
 </html>
