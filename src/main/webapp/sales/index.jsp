@@ -2,6 +2,7 @@
 <!doctype html>
 <html lang="en">
 <head>
+    <!-- Head -->
     <%@include file="include/head.jspf"  %>
 </head>
 <body>
