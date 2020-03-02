@@ -51,8 +51,8 @@
                                     <table class="pure-table pure-table-bordered">
                                         <thead>
                                             <tr>
-                                                <th>修改</th>
-                                                <th>刪除</th>
+                                                <th nowrap>修改</th>
+                                                <th nowrap>刪除</th>
                                                 <th>discountCode</th>
                                                 <th>rate</th>
                                             </tr>
@@ -61,8 +61,8 @@
                                         <tbody>
                                             <c:forEach var="item" items="${list}">
                                                 <tr>
-                                                    <td><a href="${pageContext.request.getContextPath()}/mvc/discount_code/get/${item.discountCode}"> 按我修改 </a></td>
-                                                    <td><a href="${pageContext.request.getContextPath()}/mvc/discount_code/delete/${item.discountCode}"> 按我刪除 </a></td>
+                                                    <td nowrap><a href="${pageContext.request.getContextPath()}/mvc/discount_code/get/${item.discountCode}">修改</a></td>
+                                                    <td nowrap><a href="${pageContext.request.getContextPath()}/mvc/discount_code/delete/${item.discountCode}">刪除</a></td>
                                                     <td>${item.discountCode}</td>
                                                     <td>${item.rate}</td>
                                                 </tr>
