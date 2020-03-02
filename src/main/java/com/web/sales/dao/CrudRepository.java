@@ -4,7 +4,7 @@ import java.util.Optional;
 
 public interface CrudRepository<T, ID> {
 
-    <S extends T> S save(S entity);
+    void save(T entity);
 
     Optional<T> findById(ID id);
 
@@ -13,8 +13,6 @@ public interface CrudRepository<T, ID> {
     Iterable<T> findAll();
 
     void deleteById(ID id);
-
-    void deleteAll();
 
     void update(T entity);
 }
