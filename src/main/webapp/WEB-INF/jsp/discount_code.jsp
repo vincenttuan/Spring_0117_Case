@@ -32,8 +32,8 @@
                                 <fieldset>
                                     <legend><h2 class="content-subhead">折扣碼維護</h2></legend>
 
-                                    <form:input path="discountCode" placeholder="折扣代號" readonly="${readonly}" /><p />
-                                    <form:input path="rate" placeholder="折扣" /><p />
+                                    <form:input path="discountCode" placeholder="折扣代號" readonly="${readonly}" />&nbsp;<form:errors path="discountCode" style="color: red" /><p />
+                                    <form:input path="rate" placeholder="折扣" />&nbsp;<form:errors path="rate" style="color: red" /><p />
 
                                     <button type="submit" class="pure-button pure-button-primary">${action}</button>
                                 </fieldset>
