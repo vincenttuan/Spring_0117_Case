@@ -34,7 +34,7 @@
 
                                 <form:input path="productId" placeholder="商品代碼" readonly="${readonly}" /><p />
                                 <form:input path="manufacturerId" placeholder="製造商 ID"/><p />
-                                <form:select path="productCode" placeholder="商品分類碼 PROD_CODE"/><p />
+                                <form:input path="productCode" placeholder="商品分類碼 PROD_CODE"/><p />
                                 <form:input path="purchaseCost" placeholder="商品成本" /><p />
                                 <form:input path="quantityOnHand" placeholder="商品數量" /><p />
                                 <form:input path="markup" placeholder="markup" /><p />
