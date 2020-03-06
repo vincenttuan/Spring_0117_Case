@@ -33,7 +33,11 @@
                                 <legend><h2 class="content-subhead">商品代碼維護</h2></legend>
 
                                 <form:input path="prodCode" placeholder="商品代碼" readonly="${readonly}" /><p />
-                                <form:input path="discountCode" placeholder="商品折扣代碼" /><p />
+                                <form:select path="discountCode" 
+                                             items="${list_dc}" 
+                                             itemLabel="discountCode" 
+                                             itemValue="discountCode"/>
+                                <p />
                                 <form:input path="description" placeholder="商品描述" /><p />
 
                                 <button type="submit" class="pure-button pure-button-primary">${action}</button>
