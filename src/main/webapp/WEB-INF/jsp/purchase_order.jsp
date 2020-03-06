@@ -45,8 +45,8 @@
                                 <p />
                                 <form:input path="quantity" placeholder="採購數量" /><p />
                                 <form:input path="shippingCost" placeholder="運費" /><p />
-                                <form:input path="salesDate" placeholder="Sales 日期" value="2020-03-06"/><p />
-                                <form:input path="shippingDate" placeholder="Shipping 日期" value="2020-03-06"/><p />
+                                <form:input path="salesDate" placeholder="Sales 日期" value="2020-03-06" type="date" /><p />
+                                <form:input path="shippingDate" placeholder="Shipping 日期" value="2020-03-06" type="date" /><p />
                                 <form:input path="freightCompany" placeholder="運輸公司" /><p />
 
                                 <button type="submit" class="pure-button pure-button-primary">${action}</button>
