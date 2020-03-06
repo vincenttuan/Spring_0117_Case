@@ -35,7 +35,7 @@
                                 <form:input path="prodCode" placeholder="商品代碼" readonly="${readonly}" /><p />
                                 <form:select path="discountCode" 
                                              items="${list_dc}" 
-                                             itemLabel="discountCode" 
+                                             itemLabel="label" 
                                              itemValue="discountCode"/>
                                 <p />
                                 <form:input path="description" placeholder="商品描述" /><p />
