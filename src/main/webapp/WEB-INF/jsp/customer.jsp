@@ -42,14 +42,14 @@
                                                 itemLabel="label"
                                                 itemValue="discountCode"
                                                 />
-                                            <p/>
+                                            <p />
                                             <form:select
                                                 path="zip"
                                                 items="${list_mm}"
                                                 itemLabel="zipCode"
                                                 itemValue="zipCode"
                                                 />
-                                            <p/>
+                                            <p />
                                             <form:input path="name" placeholder="客戶名稱" />
                                         </td>
                                         <td valign="top" style="padding: 5px">
