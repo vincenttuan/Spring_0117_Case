@@ -53,8 +53,8 @@
                                             <form:input path="name" placeholder="客戶名稱" />
                                         </td>
                                         <td valign="top" style="padding: 5px">
-                                            <form:input path="addressLine1" placeholder="地址1" /><p/>
-                                            <form:input path="addressLine2" placeholder="地址2" /><p/>
+                                            <form:input path="addressline1" placeholder="地址1" /><p/>
+                                            <form:input path="addressline2" placeholder="地址2" /><p/>
                                             <form:input path="city" placeholder="城市" /><p/>
                                             <form:input path="state" placeholder="地區/州" />
                                         </td>
@@ -107,8 +107,8 @@
                                                 <td>${item.discountCode}</td>
                                                 <td>${item.zip}</td>
                                                 <td>${item.name}</td>
-                                                <td>${item.addressLine1}</td>
-                                                <td>${item.addressLine2}</td>
+                                                <td>${item.addressline1}</td>
+                                                <td>${item.addressline2}</td>
                                                 <td>${item.city}</td>
                                                 <td>${item.state}</td>
                                                 <td>${item.phone}</td>
