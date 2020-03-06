@@ -34,8 +34,16 @@
 
                                 <form:input path="productId" placeholder="商品代碼" readonly="${readonly}" /><p />
                                 <form:input path="manufacturerId" placeholder="製造商 ID"/><p />
-                                <form:input path="productCode" placeholder="商品分類碼 PROD_CODE"/><p />
-                                <form:input path="purchaseCost" placeholder="商品成本" /><p />
+                                <form:select path="manufacturerId" 
+                                             items="${list_mf}" 
+                                             itemLabel="name" 
+                                             itemValue="manufacturerId"/>
+                                <p />
+                                <form:select path="productCode" 
+                                             items="${list_pc}" 
+                                             itemLabel="label" 
+                                             itemValue="prodCode"/>
+                                <p />
                                 <form:input path="quantityOnHand" placeholder="商品數量" /><p />
                                 <form:input path="markup" placeholder="markup" /><p />
                                 <form:input path="available" placeholder="商品是否足夠" /><p />

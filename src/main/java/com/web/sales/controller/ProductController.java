@@ -1,6 +1,8 @@
 package com.web.sales.controller;
 
 import com.web.sales.models.Product;
+import com.web.sales.services.ManufacturerService;
+import com.web.sales.services.ProductCodeService;
 import com.web.sales.services.ProductService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,12 +20,20 @@ public class ProductController {
     @Autowired
     private ProductService service;
     
+    @Autowired
+    private ProductCodeService service_pc;
+    
+    @Autowired
+    private ManufacturerService service_mf;
+    
     @GetMapping("/input")
     public String input(Model model) {
         Product product = new Product();
         List<Product> list = service.query();
         model.addAttribute("product", product);
         model.addAttribute("list", list);
+        model.addAttribute("list_mf", service_mf.query());
+        model.addAttribute("list_pc", service_pc.query());
         model.addAttribute("action", "add");
         model.addAttribute("readonly", "false");
         return "product";
@@ -42,6 +52,8 @@ public class ProductController {
             List<Product> list = service.query();
             model.addAttribute("product", product);
             model.addAttribute("list", list);
+            model.addAttribute("list_mf", service_mf.query());
+            model.addAttribute("list_pc", service_pc.query());
             model.addAttribute("action", "update");
             model.addAttribute("readonly", "true");
             return "product";

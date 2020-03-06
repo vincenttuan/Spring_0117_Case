@@ -30,5 +30,8 @@ public class ProductCode {
         this.description = description;
     }
     
+    public String getLabel() {
+        return prodCode + " : " + description;
+    }
     
 }
