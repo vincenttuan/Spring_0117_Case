@@ -14,7 +14,7 @@ public class ReportRepository {
     private JdbcTemplate jdbcTemplate;
 
     public Iterable<ReportCustomer> findAllCustomers() {
-        String sql = "SELECT * FROM Report_Customer order by ";
+        String sql = "SELECT * FROM Report_Customer";
         return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(ReportCustomer.class));
     }
     
