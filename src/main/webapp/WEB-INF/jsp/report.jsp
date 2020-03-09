@@ -11,7 +11,7 @@
         <script type="text/javascript">
             google.charts.load('current', {'packages': ['corechart', 'table']});
             google.charts.setOnLoadCallback(drawTable_1);
-
+            google.charts.setOnLoadCallback(drawTable_2);
             google.charts.setOnLoadCallback(drawChart_1);
             google.charts.setOnLoadCallback(drawChart_2);
             
@@ -19,7 +19,7 @@
                 var data = new google.visualization.DataTable();
                 data.addColumn('number', 'ID');
                 data.addColumn('string', 'Name');
-                data.addColumn('number', 'Subtotal');
+                data.addColumn('number', 'Subtotal(US)');
                 data.addRows([
                     <c:forEach var="item" items="${list_customers}">
                     [${item.customerId}, '${item.customerName}', {v: ${item.subtotal}, f: '$<fmt:formatNumber type="number" maxFractionDigits="0" value="${item.subtotal}" />'}],
@@ -32,8 +32,18 @@
             }
 
             function drawTable_2() {
-
-
+                var data = new google.visualization.DataTable();
+                data.addColumn('number', 'ID');
+                data.addColumn('string', 'Name');
+                data.addColumn('string', 'CodeName');
+                data.addColumn('number', 'Subtotal');
+                data.addRows([
+                    <c:forEach var="item" items="${list_products}">
+                    [${item.productId}, '${item.productName}', '${item.productCodeName}', {v: ${item.quantity}, f: '$<fmt:formatNumber type="number" maxFractionDigits="0" value="${item.quantity}" />'}],
+                    </c:forEach>
+                ]);
+                var table = new google.visualization.Table(document.getElementById('table_div_2'));
+                table.draw(data, {showRowNumber: true, width: '900px', height: '500px'});
             }
 
             function drawChart_1() {
@@ -44,7 +54,7 @@
                     </c:forEach>
                 ]);
                 var options = {
-                    title: '顧客消費分析-金額'
+                    title: '顧客消費分析-金額(US)',
                 };
                 var chart = new google.visualization.BarChart(document.getElementById('chart_div_1'));
                 chart.draw(data, options);
@@ -52,12 +62,13 @@
             function drawChart_2() {
                 var data = google.visualization.arrayToDataTable([
                     ['name', 'subtotal'],
-            <c:forEach var="item" items="${list_products}">
+                    <c:forEach var="item" items="${list_products}">
                     ['${item.productName}', ${item.quantity}],
-            </c:forEach>
+                    </c:forEach>
                 ]);
                 var options = {
-                    title: '商品銷售分析-數量'
+                    title: '商品銷售分析-數量',
+                    is3D: true,
                 };
                 var chart = new google.visualization.PieChart(document.getElementById('chart_div_2'));
                 chart.draw(data, options);
@@ -87,13 +98,13 @@
                         <div class="content">
                             <form class="pure-form">
                                 <fieldset>
-                                    <legend><h2 class="content-subhead">顧客消費-金額</h2></legend>
+                                    <legend><h2 class="content-subhead">顧客消費-金額(US)</h2></legend>
                                     <table class="pure-table pure-table-bordered">
                                         <thead>
                                             <tr>
                                                 <th nowrap>Id</th>
                                                 <th nowrap>Name</th>
-                                                <th nowrap>subtotal</th>
+                                                <th nowrap>subtotal(US)</th>
                                             </tr>
                                         </thead>
 
@@ -151,8 +162,11 @@
             </div>
             <!-- Report Chart -->
             <div class="content">
+                <h2>顧客消費-金額(US)</h2>
                 <div id="table_div_1"></div>
-
+                <br>
+                <h2>商品銷售-數量</h2>
+                <div id="table_div_2"></div>    
                 <div id="chart_div_1" style="width: 900px; height: 500px;"></div>
                 <div id="chart_div_2" style="width: 900px; height: 500px;"></div>
             </div>
