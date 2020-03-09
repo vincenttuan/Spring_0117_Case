@@ -1,10 +1,8 @@
 package com.web.sales.services;
 
-import com.web.sales.dao.CustomerRepository;
 import com.web.sales.dao.ReportRepository;
-import com.web.sales.models.Customer;
-import com.web.sales.models.ReportCustomer;
-import com.web.sales.models.ReportProduct;
+import com.web.sales.models.report.ReportCustomer;
+import com.web.sales.models.report.ReportProduct;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;

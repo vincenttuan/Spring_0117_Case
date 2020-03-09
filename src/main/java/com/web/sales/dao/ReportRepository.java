@@ -1,9 +1,7 @@
 package com.web.sales.dao;
 
-import com.web.sales.models.Customer;
-import com.web.sales.models.ReportCustomer;
-import com.web.sales.models.ReportProduct;
-import java.util.Optional;
+import com.web.sales.models.report.ReportCustomer;
+import com.web.sales.models.report.ReportProduct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -16,7 +14,7 @@ public class ReportRepository {
     private JdbcTemplate jdbcTemplate;
 
     public Iterable<ReportCustomer> findAllCustomers() {
-        String sql = "SELECT * FROM Report_Customer";
+        String sql = "SELECT * FROM Report_Customer order by ";
         return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(ReportCustomer.class));
     }
     

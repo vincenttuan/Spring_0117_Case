@@ -45,7 +45,7 @@
                                                 <tr>
                                                     <td nowrap>${item.customerId}</td>
                                                     <td nowrap>${item.customerName}</td>
-                                                    <td nowrap>${item.subtotal}</td>
+                                                    <td nowrap align="right">${item.subtotal}</td>
                                                 </tr>
                                             </c:forEach>    
                                         </tbody>
@@ -78,7 +78,7 @@
                                                     <td nowrap>${item.productId}</td>
                                                     <td nowrap>${item.productName}</td>
                                                     <td nowrap>${item.productCodeName}</td>
-                                                    <td nowrap>${item.quantity}</td>
+                                                    <td nowrap align="right">${item.quantity}</td>
                                                 </tr>
                                             </c:forEach>    
                                         </tbody>

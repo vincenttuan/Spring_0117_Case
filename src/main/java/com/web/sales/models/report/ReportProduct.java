@@ -1,4 +1,4 @@
-package com.web.sales.models;
+package com.web.sales.models.report;
 
 public class ReportProduct {
     private Integer productId;
