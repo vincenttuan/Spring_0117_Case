@@ -7,6 +7,39 @@
     <head>
         <!-- Head -->
         <%@include file="include/head.jspf"  %>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript">
+            google.charts.load('current', {'packages': ['corechart']});
+            google.charts.setOnLoadCallback(drawChart_1);
+            google.charts.setOnLoadCallback(drawChart_2);
+            function drawChart_1() {
+                var data = google.visualization.arrayToDataTable([
+                    ['name', 'subtotal'],
+                    <c:forEach var="item" items="${list_customers}">
+                        ['${item.customerName}', ${item.subtotal}],
+                    </c:forEach>
+                ]);
+                var options = {
+                    title: '顧客消費分析-金額'
+                };
+                var chart = new google.visualization.BarChart(document.getElementById('chart_div_1'));
+                chart.draw(data, options);
+            }
+            function drawChart_2() {
+                var data = google.visualization.arrayToDataTable([
+                    ['name', 'subtotal'],
+                    <c:forEach var="item" items="${list_products}">
+                        ['${item.productName}', ${item.quantity}],
+                    </c:forEach>
+                ]);
+                var options = {
+                    title: '商品銷售分析-數量'
+                };
+                var chart = new google.visualization.PieChart(document.getElementById('chart_div_2'));
+                chart.draw(data, options);
+            }
+            
+        </script>
     </head>
     <body>
 
@@ -52,6 +85,7 @@
                                     </table>
                                 </fieldset>
                             </form>
+                            
                         </div>
                     </div>
                 </div>
@@ -85,12 +119,17 @@
                                     </table>
                                 </fieldset>
                             </form>
+                            
                         </div>
                     </div>
                 </div>
                 <!-- end information -->
             </div>
-
+            <!-- Report Chart -->
+            <div class="content">
+                <div id="chart_div_1" style="width: 900px; height: 500px;"></div>
+                <div id="chart_div_2" style="width: 900px; height: 500px;"></div>
+            </div>
             <!-- Foot -->
             <%@include file="include/foot.jspf"  %>
         </div>
