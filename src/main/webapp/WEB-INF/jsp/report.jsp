@@ -9,14 +9,38 @@
         <%@include file="include/head.jspf"  %>
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
         <script type="text/javascript">
-            google.charts.load('current', {'packages': ['corechart']});
+            google.charts.load('current', {'packages': ['corechart', 'table']});
+            google.charts.setOnLoadCallback(drawTable_1);
+
             google.charts.setOnLoadCallback(drawChart_1);
             google.charts.setOnLoadCallback(drawChart_2);
+            
+            function drawTable_1() {
+                var data = new google.visualization.DataTable();
+                data.addColumn('number', 'ID');
+                data.addColumn('string', 'Name');
+                data.addColumn('number', 'Subtotal');
+                data.addRows([
+                    <c:forEach var="item" items="${list_customers}">
+                    [${item.customerId}, '${item.customerName}', {v: ${item.subtotal}, f: '$<fmt:formatNumber type="number" maxFractionDigits="0" value="${item.subtotal}" />'}],
+                    </c:forEach>
+                ]);
+
+                var table = new google.visualization.Table(document.getElementById('table_div_1'));
+
+                table.draw(data, {showRowNumber: true, width: '900px', height: '500px'});
+            }
+
+            function drawTable_2() {
+
+
+            }
+
             function drawChart_1() {
                 var data = google.visualization.arrayToDataTable([
                     ['name', 'subtotal'],
                     <c:forEach var="item" items="${list_customers}">
-                        ['${item.customerName}', ${item.subtotal}],
+                    ['${item.customerName}', ${item.subtotal}],
                     </c:forEach>
                 ]);
                 var options = {
@@ -28,9 +52,9 @@
             function drawChart_2() {
                 var data = google.visualization.arrayToDataTable([
                     ['name', 'subtotal'],
-                    <c:forEach var="item" items="${list_products}">
-                        ['${item.productName}', ${item.quantity}],
-                    </c:forEach>
+            <c:forEach var="item" items="${list_products}">
+                    ['${item.productName}', ${item.quantity}],
+            </c:forEach>
                 ]);
                 var options = {
                     title: '商品銷售分析-數量'
@@ -38,7 +62,7 @@
                 var chart = new google.visualization.PieChart(document.getElementById('chart_div_2'));
                 chart.draw(data, options);
             }
-            
+
         </script>
     </head>
     <body>
@@ -85,7 +109,7 @@
                                     </table>
                                 </fieldset>
                             </form>
-                            
+
                         </div>
                     </div>
                 </div>
@@ -119,7 +143,7 @@
                                     </table>
                                 </fieldset>
                             </form>
-                            
+
                         </div>
                     </div>
                 </div>
@@ -127,6 +151,8 @@
             </div>
             <!-- Report Chart -->
             <div class="content">
+                <div id="table_div_1"></div>
+
                 <div id="chart_div_1" style="width: 900px; height: 500px;"></div>
                 <div id="chart_div_2" style="width: 900px; height: 500px;"></div>
             </div>
